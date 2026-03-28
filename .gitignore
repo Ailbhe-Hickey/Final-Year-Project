@@ -1,0 +1,41 @@
+# Expo / React Native
+node_modules/
+.expo/
+dist/
+web-build/
+
+# Local env files
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+android/
+ios/
+
+# TypeScript
+*.tsbuildinfo
+
+# Misc
+coverage/
+app.json
+.firebaserc
+eas.json
+eslint*
+expo-env.d.ts
+firebase.json
+metro.config.js
+package-lock.json
+package.json
+tsconfig.json
+firebaseConfig.ts
+ui/
+old/
+.vscode/
