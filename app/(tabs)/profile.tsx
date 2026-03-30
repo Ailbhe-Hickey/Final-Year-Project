@@ -354,7 +354,7 @@ interface UserProfile {
   displayName: string;
   email?: string;
   familyId?: string | null;
-  mndprofile?: boolean;
+  role?: string;
 }
 
 // A single settings row with an icon, label, and value
@@ -490,18 +490,14 @@ export default function settings() {
               label="Email"
               value={userData?.email || "—"}
             />
+            <View style={styles.divider} />
+            <SettingsRow
+              icon={userData?.role === 'family' ? 'people-outline' : 'share-social-outline'}
+              label="Role"
+              value={userData?.role === 'family' ? 'Family' : 'MND'}
+            />
           </View>
 
-          {/* Profile section
-          <Text style={styles.sectionLabel}>Profile</Text>
-          <View style={styles.card}>
-            <SettingsRow
-              icon="medical-outline"
-              label="MND Profile"
-              value={userData?.mndprofile ? "Set up" : "Not set up"}
-              badge={userData?.mndprofile ? undefined : "Set up"}
-            />
-          </View> */}
 
 
         </ScrollView>

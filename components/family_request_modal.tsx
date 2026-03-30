@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     marginBottom: 20,
   },
-  
+
   nameHighlight: {
     fontWeight: "700",
     color: dark_green,

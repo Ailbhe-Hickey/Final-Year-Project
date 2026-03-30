@@ -3,30 +3,30 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Clipboard from "expo-clipboard";
 import { useRouter } from "expo-router";
 import {
-    addDoc,
-    arrayRemove,
-    arrayUnion,
-    collection,
-    doc,
-    getDoc,
-    getDocs,
-    query,
-    updateDoc,
-    where,
+  addDoc,
+  arrayRemove,
+  arrayUnion,
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  updateDoc,
+  where,
 } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import {
-    ActivityIndicator,
-    Alert,
-    Dimensions,
-    FlatList,
-    KeyboardAvoidingView,
-    Platform,
-    Pressable,
-    StyleSheet,
-    Text,
-    TextInput,
-    View,
+  ActivityIndicator,
+  Alert,
+  Dimensions,
+  FlatList,
+  KeyboardAvoidingView,
+  Platform,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
 } from "react-native";
 import Svg, { Path } from "react-native-svg";
 
@@ -35,6 +35,7 @@ import Svg, { Path } from "react-native-svg";
 interface Member {
   uid: string;
   displayName: string;
+  role?: string;
 }
 
 // ─── Constants 
@@ -279,8 +280,8 @@ export default function FamilyDashboard() {
         const mDoc = await getDoc(doc(FIREBASE_db, "users", uid));
         if (mDoc.exists()) {
           const m = mDoc.data();
-          memberData.push({ uid, displayName: m.displayName || "Unknown" });
-        }
+          memberData.push({ uid, displayName: m.displayName || "Unknown", role: m.role || "" });
+}
       }
 
       setMembers(memberData);
@@ -421,11 +422,15 @@ export default function FamilyDashboard() {
         }
         renderItem={({ item }) => (
           <View style={styles.memberRow}>
-            <View style={[styles.avatar, { backgroundColor: dark_green }]}>
+          <View style={[styles.avatar, { backgroundColor: dark_green }]}>
+            {item.role === 'mnd' ? (
+              <Ionicons name="share-social-outline" size={22} color="white" />
+            ) : (
               <Text style={styles.avatarText}>{getInitials(item.displayName)}</Text>
-            </View>
-            <Text style={styles.memberName}>{item.displayName}</Text>
+            )}
           </View>
+          <Text style={styles.memberName}>{item.displayName}</Text>
+        </View>
         )}
         ListEmptyComponent={<Text style={styles.emptyText}>No members yet.</Text>}
       />

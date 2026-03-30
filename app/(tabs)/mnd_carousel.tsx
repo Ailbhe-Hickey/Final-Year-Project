@@ -129,7 +129,7 @@ export default function HomeScreen() {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <View style={styles.box}>
+        <View>
           <Svg
             height={200}
             width={SCREEN_WIDTH}
@@ -170,23 +170,25 @@ export default function HomeScreen() {
           flatListRef={flatListRef}
           onSelect={(need) => setSelectedNeed(need)}
         />
-      </View>
 
-
-      <PatientRequestBanner
+        <PatientRequestBanner
         requestId={activeRequestId}
         onDismiss={() => setActiveRequestId(null)}
       />
 
+      </View>
+
+
+
 
       <View style={styles.bottom}>
-        <View style={styles.box}>
+        <View>
           <Svg
             height={180}
             width={SCREEN_WIDTH}
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
-            style={styles.bottomWavy}
+            
           >
             <Path
               fill="#7F9C96"
@@ -208,9 +210,9 @@ const styles = StyleSheet.create({
   },
 
   content: {
-    flex: 1,
-    justifyContent: "center",
-    paddingBottom: 350,
+    flex: 1 ,
+    alignContent: "center",
+    
   },
 
   // Waves
@@ -220,22 +222,10 @@ const styles = StyleSheet.create({
   },
 
   bottom: {
-    position: "absolute",
     width: SCREEN_WIDTH,
-    bottom: 0,
   },
 
-  box: { 
-    backgroundColor: "#7F9C96", 
-    height: 20 
-  },
-
-  bottomWavy: {
-    position: "absolute",
-    bottom: 20,
-    width: SCREEN_WIDTH,
-    zIndex: -1,
-  },
+ 
 
   // Header
   headerBlock: {
@@ -245,7 +235,7 @@ const styles = StyleSheet.create({
   },
 
   greeting: { 
-    fontSize: 32, 
+    fontSize: 28, 
     fontWeight: "700", 
     color: "#1a2e28",  
     marginBottom: 10 
@@ -258,7 +248,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f5f4",
     borderRadius: 12,
     padding: 4,
-    marginHorizontal: 60,
+    marginHorizontal: "30%",
     marginBottom: 12,
   },
 

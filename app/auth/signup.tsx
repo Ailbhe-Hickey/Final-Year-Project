@@ -94,7 +94,7 @@ const Signup = () => {
           showsVerticalScrollIndicator={false}
         >
           <Text style={styles.heading}>Create account</Text>
-          <Text style={styles.subheading}>Join your family on MND Connect</Text>
+          <Text style={styles.subheading}>Sign up to get started</Text>
 
           <Text style={styles.label}>Full Name</Text>
           <View style={styles.inputRow}>
@@ -157,8 +157,8 @@ const Signup = () => {
                   <Ionicons
                     name={
                       option === 'MND'
-                        ? 'accessibility-outline'
-                        : 'heart-outline'
+                        ? 'share-social-outline'
+                        : 'home-outline'
                     }
                     size={16}
                     color={selected ? 'white' : dark_green}
